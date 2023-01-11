@@ -1,0 +1,15 @@
+TO DO
+----------
+> Make a diagram of network topology
+> Put x509 certs across different machines
+> Implement 2 VPNs connected to Internet (gw1 Wireguard + gw2 StrongSwan)
+	> Some example office machines that go behind the VPNs? (one accessable by from outside, another is not)
+	> VPN should check for x509 certs
+	> Firewall rules
+	> Mobile users (a and b) connect to VPNs to securely access office
+> Apache web server connected to Internet
+	> Allow only users connected to VPN
+	> HTTPS protected transactions
+> Generate GPG key
+
+
