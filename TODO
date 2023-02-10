@@ -11,5 +11,16 @@ TO DO
 	> Allow only users connected to VPN
 	> HTTPS protected transactions
 > Generate GPG key
+> Ensure final netkit implementation is named 'iss-cw2', and wrapped into a tar.gz file. 
+	> Each group member must fill out the final PDF report with their own details, and then create a digital signature of the PDF + netkit implementation.
+	
+	
+Your submission will comprise six separate files, submitted via tabula:
 
+* The report
+* Netkit Implementation
+* File of Hashes
+* Digital signature of the pdf
+* Digital signature of the tar.gz
+* GPG public key
 
