@@ -11,6 +11,13 @@ echo "net.ipv6.conf.all.disable_ipv6 = 1 # appended by shared.startup"  >> /etc/
 sysctl -p
 
 # provide FQDN resolution for rA and rB by appending to hosts file on all machines
-echo "192.0.2.2 rA.cyber.test"  >> /etc/hosts
-echo "198.51.100.2 rB.cyber.test"  >> /etc/hosts
-
+echo "192.0.2.2 rA.quebec2.cyber.test"  >> /etc/hosts
+echo "198.51.100.2 rB.quebec2.cyber.test"  >> /etc/hosts
+echo "10.0.0.2 b.quebec2.cyber.test"  >> /etc/hosts
+echo "172.28.97.42 a.quebec2.cyber.test"  >> /etc/hosts
+echo "213.1.133.97 internet.quebec2.cyber.test"  >> /etc/hosts
+echo "213.1.133.100 apache.quebec2.cyber.test"  >> /etc/hosts
+echo "213.1.133.98 gw1.quebec2.cyber.test"  >> /etc/hosts
+echo "213.133.99 gw2.quebec2.cyber.test"  >> /etc/hosts
+echo "192.168.87.2 ca.quebec2.cyber.test"  >> /etc/hosts
+echo "192.168.87.3 apachelan.quebec2.cyber.test"  >> /etc/hosts

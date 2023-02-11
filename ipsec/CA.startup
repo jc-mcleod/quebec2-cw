@@ -1,0 +1,13 @@
+######################
+#
+# CA.startup
+#
+######################
+
+ip link set dev eth0 address 00:00:00:77:77:77
+ip link set dev eth0 up
+
+ip addr add 192.168.87.2/24 dev eth0
+
+ip route add default via 192.168.87.0
+

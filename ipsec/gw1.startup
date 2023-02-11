@@ -1,0 +1,15 @@
+##################
+#
+# gw1.startup
+#
+##################
+
+ip link set dev eth0 address 00:00:00:44:44:44
+ip link set dev eth1 address 44:44:44:00:00:00
+ip link set dev eth0 up
+ip link set dev eth1 up
+
+ip addr add 213.1.133.98/27 dev eth0
+ip addr add 192.168.87.0/24 dev eth1
+
+ip route add default via 213.1.133.97 
