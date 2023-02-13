@@ -13,3 +13,21 @@ ip addr add 213.1.133.99/27 dev eth0
 ip addr add 192.168.87.1/24 dev eth1
 
 ip route add default via 213.1.133.97 
+
+
+apt --purge remove man-db
+apt update
+
+# apt install -y strongswan-swanctl
+
+# systemctl start ipsec.service
+
+# systemctl daemon-reload
+
+# swanctl --load-all
+
+# swanctl --initiate --child net-net
+
+# swanctl --terminate --child net-net
+
+

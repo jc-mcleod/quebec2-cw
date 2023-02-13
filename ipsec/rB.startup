@@ -15,3 +15,21 @@ ip link set up dev eth2
 ip route add default via 198.51.100.1
 
 systemctl start ipsec.service
+
+apt --purge remove man-db
+
+apt update
+
+# apt install -y strongswan-swanctl
+
+# systemctl start ipsec.service
+
+# systemctl daemon-reload
+
+# swanctl --load-all
+
+# swanctl --initiate --child net-net
+
+# swanctl --terminate --child net-net
+
+ 
