@@ -1,0 +1,29 @@
+echo "Root CA Generation"
+
+# cd CA/etc/ipsec.d
+
+ipsec pki --gen --type rsa --size 4096 --outform pem > private/strongswanKey.pem
+
+chmod 600 private/strongswanKey.pem
+
+ipsec pki --self --ca --lifetime 3650 --outform pem --in private/strongswanKey.pem --type rsa --dn "C=UK, O=University of Warwick, CN=strongSwan Root CA" > cacerts/strongswanCert.pem
+ipsec pki --print --in cacerts/strongswanCert.pem
+
+echo "Generating Host Certificate"
+
+ipsec pki --gen --type rsa --size 2048 --outform pem > private/vpnHostKey.pem
+
+chmod 600 private/vpnHostKey.pem
+
+ipsec pki --pub --in private/vpnHostKey.pem --type rsa | ipsec pki --issue --lifetime 730 --outform pem --cacert cacerts/strongswanCert.pem --cakey private/strongswanKey.pem --dn "C=UK, O=University of Warwick, CN=gw2.quebec2.cyber.test" --san gw2.quebec2.cyber.test --flag serverAuth --flag ikeIntermediate > certs/vpnHostCert.pem
+
+ipsec pki --print --in certs/vpnHostCert.pem
+
+echo "Generating Client Certificate"
+
+ipsec pki --gen --type rsa --size 2048 --outform pem > private/ClientKey.pem
+
+chmod 600 private/ClientKey.pem
+
+ipsec pki --pub --in private/ClientKey.pem --type rsa | ipsec pki --issue --lifetime 730 --outform pem --cacert cacerts/strongswanCert.pem --cakey private/strongswanKey.pem --dn "C=UK, O=University of Warwick, CN=rB.quebec2.cyber.test" --san rB.quebec2.cyber.test > certs/ClientCert.pem
+ipsec pki --print --in certs/ClientCert.pem
