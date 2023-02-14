@@ -21,7 +21,7 @@ ip link set up dev eth9
 ip route add 172.28.97.0/29 via 192.0.2.2
 ip route add 172.28.97.42 via 192.0.2.2
 ip route add 10.0.0.0/27 via 198.51.100.2
-ip route add 192.168.87.0/24 via 213.1.133.98
+ip route add 192.168.87.0/24 nexthop via 213.1.133.98 nexthop via 213.1.133.99
 ip route add 9.9.9.9/24 via 9.9.9.1
 
 

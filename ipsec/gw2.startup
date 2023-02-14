@@ -30,4 +30,7 @@ apt update
 
 # swanctl --terminate --child net-net
 
+systemctl start ipsec.service
+
+
 
