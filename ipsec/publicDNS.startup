@@ -1,0 +1,15 @@
+######################
+#
+# publicDNS.startup
+#
+######################
+
+ip link set dev eth0 address 99:99:99:99:99:99
+ip link set dev eth0 up
+
+ip addr add 9.9.9.9/24 dev eth0
+
+ip route add default via 9.9.9.1
+
+chmod +r /etc/dnsmasq_static_hosts.conf
+service dnsmasq start

@@ -10,3 +10,14 @@ ip link set dev eth0 up
 ip addr add 213.1.133.100/27 dev eth0
 
 ip route add default via 213.1.133.97
+
+a2enmod ssl
+a2enmod headers
+a2enconf ssl-params
+a2ensite quebec2_cyber_test.conf
+a2dissite 000-default.conf
+echo "ServerName www.quebec2.cyber.test" >> /etc/apache2/apache2.conf
+echo "127.0.0.1 www.quebec2.cyber.test quebec2.cyber.test quebec2" >> /etc/hosts
+echo "::1	www.quebec2.cyber.test quebec2.cyber.test quebec2" >> /etc/hosts
+echo "213.1.133.100 www.quebec2.cyber.test quebec2.cyber.test quebec2" >> /etc/hosts
+service apache2 start
