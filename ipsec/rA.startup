@@ -16,5 +16,44 @@ ip route add default via 192.0.2.1
 
 systemctl start ipsec.service
 
+## Install Wireguard ##
+# apt install wireguard
+# cd /etc/wireguard
+# wg genkey | tee privatekey | wg pubkey > publickey
+
+
+## Configure Wireguard's Client
+# nano /etc/wireguard/wg0.conf
+
+###############################
+# [Interface]
+# ## Client Private IP addr ##
+# PrivateKey = QCjgOZrHTWM4qruNBXUq1T+sEe7M3cfGe32J2tyYemM=
+#
+# ## Client Private IP addr##
+# Address = 192.0.2.3/24
+#
+# [Peer]
+# ## Servers's public key
+# PublicKey = JamLW4hPfoLWOB0/Q7uXDdD6ODkWoG9UPuh6pmVIvVE=
+#
+# ## Set Access Control List (ACL) ##
+# AllowedIPs = 192.0.2.0/24
+#
+# ## Server Public IP addr ##
+# Endpoint = 213.1.133.97:41194
+#
+# ## Keep Connection alive ##
+# PersistentKeepalive = 15
+###################################
+
+## Enable wireguard
+systemctl enable wg-quick@wg0
+systemctl start wg-quick@wg0
+but the  
+
+## Enable IP forwarding
+sysctl -w net.ipv4.ip_forward=1
+
 ## Allows peers to see each other (wireguard)
-sysctl -w net.ipv4.ip_forward=1; iptables -I FORWARD -i wg0 -o wg0 -j ACCEPT
+iptables -I FORWARD -i wg0 -o wg0 -j ACCEPT
