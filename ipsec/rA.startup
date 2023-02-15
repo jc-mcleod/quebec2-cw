@@ -15,3 +15,6 @@ ip link set up dev eth2
 ip route add default via 192.0.2.1
 
 systemctl start ipsec.service
+
+## Allows peers to see each other (wireguard)
+sysctl -w net.ipv4.ip_forward=1; iptables -I FORWARD -i wg0 -o wg0 -j ACCEPT
