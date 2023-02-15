@@ -11,6 +11,7 @@ ip addr add 213.1.133.100/27 dev eth0
 
 ip route add default via 213.1.133.97
 
+# setting up apache server with SSL
 a2enmod ssl
 a2enmod headers
 a2enconf ssl-params

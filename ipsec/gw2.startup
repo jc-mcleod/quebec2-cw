@@ -32,5 +32,6 @@ apt update
 
 systemctl start ipsec.service
 
-
+# adding officeDNS to office space machines
+sed -i '1s/^/nameserver 192.168.87.4\n/' /etc/resolv.conf
 

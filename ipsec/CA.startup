@@ -11,3 +11,5 @@ ip addr add 192.168.87.2/24 dev eth0
 
 ip route add default via 192.168.87.1
 
+# adding officeDNS to office space machines
+sed -i '1s/^/nameserver 192.168.87.4\n/' /etc/resolv.conf
