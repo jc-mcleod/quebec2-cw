@@ -10,4 +10,8 @@ ip link set up dev eth0
 ip route add default via 172.28.97.41
 
 # adding officeDNS to external employee machines
+<<<<<<< HEAD
 sed -i '1s/^/nameserver 192.168.87.4\n/' /etc/resolv.con
+=======
+sed -i '1s/^/nameserver 192.168.87.4\n/' /etc/resolv.conf
+>>>>>>> dd03ecc739f79d5522dc6c9d927e1433fa45f372

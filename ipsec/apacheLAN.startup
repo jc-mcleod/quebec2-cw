@@ -9,4 +9,19 @@ ip link set dev eth0 up
 
 ip addr add 192.168.87.3/24 dev eth0 
 
-ip route add default via 192.168.87.0 
+ip route add default scope global nexthop via 192.168.87.1 nexthop via 192.168.87.0
+
+# setting up internal apache server with SSL
+a2enmod ssl
+a2enmod headers
+a2enconf ssl-params
+a2ensite office_quebec2_cyber_test.conf
+a2dissite 000-default.conf
+echo "ServerName office.quebec2.cyber.test" >> /etc/apache2/apache2.conf
+echo "127.0.0.1 office.quebec2.cyber.test" >> /etc/hosts
+echo "::1	office.quebec2.cyber.test" >> /etc/hosts
+echo "192.168.87.3 office.quebec2.cyber.test" >> /etc/hosts
+service apache2 start
+
+# adding officeDNS to office space machines
+sed -i '1s/^/nameserver 192.168.87.4\n/' /etc/resolv.conf
