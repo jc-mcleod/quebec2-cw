@@ -6,9 +6,7 @@ TO DO
 	> Firewall rules
 	> Mobile users (a and b) connect to VPNs to securely access office
 	
-> Apache web server on the public internet
-	> Allow only users connected to VPN ????
-	> HTTPS protected transactions with x509 (SSL) certs
+
 	
 > Ensure final netkit implementation is named 'iss-cw2', and wrapped into a tar.gz file. 
 	> Each group member must fill out the final PDF report with their own details, and then create a digital signature of the PDF + netkit implementation.
@@ -27,3 +25,5 @@ DONE
 --------
 > Make a diagram of network topology
 > Generate GPG keys and sign them
+> Apache web server on the public internet
+	> HTTPS protected transactions with x509 (SSL) certs
