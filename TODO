@@ -1,16 +1,13 @@
 TO DO
 ----------
-> Make a diagram of network topology
-> Put x509 certs across different machines
 > Implement 2 VPNs connected to Internet (gw1 Wireguard + gw2 StrongSwan)
-	> Some example office machines that go behind the VPNs? (one accessable by from outside, another is not)
-	> VPN should check for x509 certs
+	> Some example office machines that can be accessed through VPNs (Internal Apache Server)?
+	> VPN should check for certs
 	> Firewall rules
 	> Mobile users (a and b) connect to VPNs to securely access office
-> Apache web server connected to Internet
-	> Allow only users connected to VPN
-	> HTTPS protected transactions
-> Generate GPG key
+	
+
+	
 > Ensure final netkit implementation is named 'iss-cw2', and wrapped into a tar.gz file. 
 	> Each group member must fill out the final PDF report with their own details, and then create a digital signature of the PDF + netkit implementation.
 	
@@ -24,3 +21,9 @@ Your submission will comprise six separate files, submitted via tabula:
 * Digital signature of the tar.gz
 * GPG public key
 
+DONE
+--------
+> Make a diagram of network topology
+> Generate GPG keys and sign them
+> Apache web server on the public internet
+	> HTTPS protected transactions with x509 (SSL) certs
